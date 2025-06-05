@@ -164,15 +164,11 @@
 <script src="{{ asset("") }}assets/js/wow.js"></script>
 <script src="{{ asset("") }}assets/js/appear.js"></script>
 <script src="{{ asset("") }}assets/js/isotope.js"></script>
-<script src="https://maps.google.com/maps/api/js?key=AIzaSyBKS14AnP3HCIVlUpPKtGp7CbYuMtcXE2o"></script>
-
 <script src="{{ asset("") }}assets/js/js/jquery.fancybox.js"></script>
 <script src="{{ asset("") }}assets/js/js/validate.js"></script>
 <script src="{{ asset("") }}assets/js/js/appear.js"></script>
 <script src="{{ asset("") }}assets/js/js/mixitup.js"></script>
 <script src="{{ asset("") }}assets/js/js/script.js"></script>
-<!--Google Map APi Key-->
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyBKS14AnP3HCIVlUpPKtGp7CbYuMtcXE2o"></script>
 <script src="{{ asset("") }}assets/js/js/map-script.js"></script>
 
 </body>
