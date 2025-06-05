@@ -2,32 +2,27 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PhotoResource\Pages;
-use App\Models\Photo;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Section;
+use App\Filament\Resources\SubscribeResource\Pages;
+use App\Models\Subscribe;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
-class PhotoResource extends Resource
+class SubscribeResource extends Resource
 {
-    protected static ?string $model = Photo::class;
+    protected static ?string $model = Subscribe::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected  static ?int $navigationSort = 2;
+    protected  static ?int $navigationSort = 7;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Section::make([
-                    TextInput::make('name')->required(),
-                    FileUpload::make('image')->image()->required(),
-                ]),
+                TextInput::make('email')->required(),
             ]);
     }
 
@@ -36,8 +31,8 @@ class PhotoResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')->sortable(),
-                Tables\Columns\TextColumn::make('name')->searchable(),
-                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\TextColumn::make('email')->searchable(),
+                Tables\Columns\TextColumn::make('created_at')->dateTime(),
             ])
             ->filters([
                 //
@@ -51,7 +46,7 @@ class PhotoResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ])->defaultSort('created_at', 'desc')->reorderable('sort_order');
+            ])->defaultSort('created_at', 'desc');
     }
 
     public static function getRelations(): array
@@ -64,9 +59,9 @@ class PhotoResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPhotos::route('/'),
-            'create' => Pages\CreatePhoto::route('/create'),
-            'edit' => Pages\EditPhoto::route('/{record}/edit'),
+            'index' => Pages\ListSubscribes::route('/'),
+            'create' => Pages\CreateSubscribe::route('/create'),
+            'edit' => Pages\EditSubscribe::route('/{record}/edit'),
         ];
     }
 }

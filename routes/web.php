@@ -9,3 +9,6 @@ Route::get('/events', [GeneralController::class, 'events'])->name('events');
 Route::get('/event/{slug}', [GeneralController::class, 'singleEvent'])->name('singleEvent');
 Route::get('/photos', [GeneralController::class, 'photos'])->name('photos');
 Route::get('/contact', [GeneralController::class, 'contact'])->name('contact');
+
+Route::post('/sendMessage', [GeneralController::class, 'sendMessage'])->name('sendMessage')->middleware('throttle:2,1');
+Route::post('/subscribe', [GeneralController::class, 'subscribe'])->name('subscribe')->middleware('throttle:2,1');

@@ -45,11 +45,32 @@
                     <h3>Get a Quote</h3>
                     <!-- Contact Form -->
                     <div class="contact-form">
+                        @if(Session::has('success'))
+                            <div class="alert alert-success">
+                                {{ Session::get('success') }}
+                                @php
+                                    \Illuminate\Support\Facades\Session::forget('success');
+                                @endphp
+                            </div>
+                        @endif
+                        @if($errors->any())
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                        @endif
                         <!--Contact Form-->
-                        <form method="post" action="#" id="contact-form">
+                        <form method="post" action="{{ route("sendMessage") }}" id="contact-form">
+                            @csrf
+                            @method('POST')
                             <div class="row clearfix">
                                 <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                    <input type="text" name="username" placeholder="Name" required>
+                                    <input type="text" name="name" placeholder="Name" required>
                                 </div>
 
                                 <div class="col-md-6 col-sm-12 col-xs-12 form-group">
@@ -61,7 +82,7 @@
                                 </div>
 
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
-                                    <button type="submit" class="theme-btn btn-style-two">Send Message</button>
+                                    <button type="submit" name="submit" class="theme-btn btn-style-two">Send Message</button>
                                 </div>
                             </div>
                         </form>

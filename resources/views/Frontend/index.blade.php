@@ -193,10 +193,31 @@
                 <h2>Subscribe</h2>
             </div>
             <div class="subscribe-form">
-                <form method="post" action="#">
+                @if(Session::has('success'))
+                    <div class="alert alert-success">
+                        {{ Session::get('success') }}
+                        @php
+                            \Illuminate\Support\Facades\Session::forget('success');
+                        @endphp
+                    </div>
+                @endif
+                @if($errors->any())
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                @endif
+                <form method="post" action="{{ route("subscribe") }}">
+                    @csrf
+                    @method('POST')
                     <div class="form-group">
-                        <input type="email" name="email" value="" placeholder="Your Email Address" required="">
-                        <button type="submit" class="theme-btn btn-style-three">Subscribe</button>
+                        <input type="email" name="email" value="" placeholder="Your Email Address" required>
+                        <button type="submit" name="submit" class="theme-btn btn-style-three">Subscribe</button>
                     </div>
                 </form>
             </div>

@@ -5,9 +5,13 @@ namespace App\Http\Controllers\Frontend;
 use App\Enum\EventStatusEnum;
 use App\Enum\SliderStatusEnum;
 use App\Http\Controllers\Controller;
+use App\Models\ContactMessage;
 use App\Models\Event;
 use App\Models\Page;
 use App\Models\Slider;
+use App\Models\Subscribe;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class GeneralController extends Controller
@@ -73,5 +77,35 @@ class GeneralController extends Controller
     public function contact(): View
     {
         return view('Frontend.contact');
+    }
+
+    public function sendMessage(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required',
+        ]);
+
+        ContactMessage::query()->create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message,
+        ]);
+
+        return redirect()->route('contact')->with('success', 'Message sent successfully!');
+    }
+
+    public function subscribe(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'email' => 'required|email|max:255',
+        ]);
+
+        Subscribe::query()->create([
+            'email' => $request->email,
+        ]);
+
+        return redirect()->route('index')->with('success', 'Thanks for subscribing to our newsletter!');
     }
 }
