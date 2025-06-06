@@ -4,7 +4,7 @@
 
 @section('content')
     <!--Page Title-->
-    <section class="page-title" style="background-image:url({{ asset("") }}assets/images/background/9.jpg);">
+    <section class="page-title" style="background-image:url({{ asset("") }}assets/images/photos.jpg);">
         <div class="auto-container">
             <h1>Photos</h1>
             <ul class="bread-crumb clearfix">
