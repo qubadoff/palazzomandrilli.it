@@ -19,13 +19,13 @@
         <div class="side-menu">
             <!--navigation-->
             <ul class="navigation clearfix">
-                <li class="dropdown"><a href="{{ route("index") }}">Home</a></li>
+                <li><a href="{{ route("index") }}">Home</a></li>
                 @if (pages()->count() > 0)
                     @foreach (pages() as $page)
-                        <li class="dropdown"><a href="{{ route("page", $page->slug) }}">{{ $page->title }}</a></li>
+                        <li><a href="{{ route("page", $page->slug) }}">{{ $page->title }}</a></li>
                     @endforeach
                 @endif
-                <li class="dropdown"><a href="{{ route("photos") }}">Photos</a></li>
+                <li><a href="{{ route("photos") }}">Photos</a></li>
                 <li><a href="{{ route("contact") }}">Contact us</a></li>
             </ul>
         </div>
