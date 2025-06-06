@@ -164,7 +164,6 @@
 <script src="{{ asset("") }}assets/js/wow.js"></script>
 <script src="{{ asset("") }}assets/js/appear.js"></script>
 <script src="{{ asset("") }}assets/js/isotope.js"></script>
-<script src="{{ asset("") }}assets/js/jquery.fancybox.js"></script>
 <script src="{{ asset("") }}assets/js/validate.js"></script>
 <script src="{{ asset("") }}assets/js/appear.js"></script>
 <script src="{{ asset("") }}assets/js/mixitup.js"></script>
