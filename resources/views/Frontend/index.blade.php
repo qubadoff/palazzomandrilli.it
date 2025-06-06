@@ -164,30 +164,14 @@
             <div class="items-container clearfix">
 
                 @forelse(photos() as $photo)
-                    @php
-                        $extension = strtolower(pathinfo($photo->image, PATHINFO_EXTENSION));
-                        $isVideo = in_array($extension, ['mp4', 'webm', 'ogg']);
-                        $fileUrl = url('/') . '/storage/' . $photo->image;
-                    @endphp
-
-                        <!--Default Portfolio Item-->
+                    <!--Default Portfolio Item-->
                     <div class="gallery-item masonry-item small-column all ancient other">
                         <div class="inner-box">
                             <div class="image-box">
-                                @if($isVideo)
-                                    <video width="100%" controls style="display:block;">
-                                        <source src="{{ $fileUrl }}" type="video/{{ $extension }}">
-                                        Sorry ! Your browser does not support embedded videos !
-                                    </video>
-                                @else
-                                    <img src="{{ $fileUrl }}" alt="">
-                                @endif
-
+                                <img src="{{ url('/') }}/storage/{{ $photo->image }}" alt="">
                                 <div class="overlay-box">
                                     <div class="content">
-                                        <a href="{{ $fileUrl }}" data-fancybox="gallery" @if($isVideo) data-type="video" @endif>
-                                            <span class="icon flaticon-unlink-1"></span>
-                                        </a>
+                                        <a href="{{ url('/') }}/storage/{{ $photo->image }}" data-fancybox="gallery"><span class="icon flaticon-unlink-1"></span></a>
                                         <h3>{{ $photo->name }}</h3>
                                     </div>
                                 </div>
@@ -197,7 +181,6 @@
                 @empty
                     No Data !
                 @endforelse
-
             </div>
         </div>
     </section>
