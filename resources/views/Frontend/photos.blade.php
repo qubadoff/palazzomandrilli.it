@@ -42,7 +42,7 @@
                                         <a href="{{ url("/") }}/storage/{{ $photo->image }}" data-fancybox="gallery">
                                             <video width="100%" controls>
                                                 <source src="{{ url("/") }}/storage/{{ $photo->image }}" type="video/{{ strtolower($extension) }}">
-                                                Tarayıcınız video etiketini desteklemiyor.
+                                                Sorry ! Your browser does not support embedded videos !
                                             </video>
                                         </a>
                                     @else
@@ -62,7 +62,6 @@
                     @empty
                         No Data !
                     @endforelse
-
                 </div>
             </div>
         </div>
