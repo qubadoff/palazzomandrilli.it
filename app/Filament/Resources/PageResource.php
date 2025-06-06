@@ -45,7 +45,7 @@ class PageResource extends Resource
                 ]),
                 Section::make([
                     RichEditor::make('body')->required(),
-                    FileUpload::make('image')->image()->required(),
+                    FileUpload::make('image')->image()->required()->downloadable()->openable(),
                 ]),
             ]);
     }

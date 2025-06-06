@@ -38,7 +38,7 @@ class SliderResource extends Resource
                     ])->required(),
                 ]),
                 Section::make([
-                    FileUpload::make('image')->image()->required(),
+                    FileUpload::make('image')->image()->required()->downloadable()->openable(),
                 ]),
             ]);
     }

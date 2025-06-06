@@ -42,8 +42,8 @@ class SettingResource extends Resource
                    Textarea::make('google_map_code')->required(),
                 ]),
                 Section::make([
-                    FileUpload::make('logo_header')->image()->required(),
-                    FileUpload::make('logo_footer')->image()->required(),
+                    FileUpload::make('logo_header')->image()->required()->downloadable()->openable(),
+                    FileUpload::make('logo_footer')->image()->required()->downloadable()->openable(),
                 ]),
             ]);
     }
