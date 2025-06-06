@@ -35,18 +35,18 @@
                                 </div>
                             </div>
 
-                            <div class="two-column">
-                                <div class="row clearfix">
-                                    <div class="detail-column col-md-5 col-sm-5 col-xs-12">
-                                        <h3>Details</h3>
-                                        <ul>
-                                            <li>DATE : <span>{{ $event->event_date }}</span></li>
-                                            <li>TIME : <span>{{ $event->event_time }}</span></li>
-                                            <li>COST : <span>{{ $event->event_cost }} $</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div class="two-column">--}}
+{{--                                <div class="row clearfix">--}}
+{{--                                    <div class="detail-column col-md-5 col-sm-5 col-xs-12">--}}
+{{--                                        <h3>Details</h3>--}}
+{{--                                        <ul>--}}
+{{--                                            <li>DATE : <span>{{ $event->event_date }}</span></li>--}}
+{{--                                            <li>TIME : <span>{{ $event->event_time }}</span></li>--}}
+{{--                                            <li>COST : <span>{{ $event->event_cost }} $</span></li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>

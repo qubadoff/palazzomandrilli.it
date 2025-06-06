@@ -90,7 +90,7 @@
                                  data-x="['center','center','center','center']"
                                  data-y="['middle','middle','middle','middle']"
                                  data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-                                <a href="{{ route("contact") }}" class="theme-btn btn-style-one">Contact with Us</a>
+                                <a href="{{ route("contact") }}" class="theme-btn btn-style-one">Contact Us</a>
                             </div>
                         </li>
                     @empty
@@ -110,7 +110,7 @@
                     <b>Palazzo Mandrilli (Guerrina)</b> in the historic town of Cassine in the northern Italy is a beautifully preserved 17th-century residence.
                     This noble Palazzo has witnessed centuries of Italian culture, art, and tradition. With its original brick walls, elegant arches, frescos, mosaics and quiet inner courtyards, Palazzo Mandrilli offers a unique atmosphere—where history lives in every detail.
                     Whether you're here to admire its architecture, attend a cultural event, or simply experience the quiet soul of the Piedmontese countryside, we welcome you to discover the spirit of Palazzo Guerrina—where every corner tells a story.
-                    This Gallery is owned by <a href="https://sen1sen.az" target="_blank" style="color: blue;">Sen1Sen</a> ThinkThank based in Baku, Azerbaijan.
+                    This Gallery is owned by <a href="https://instagram.com/sen1sen.az" target="_blank" style="color: blue;">Sen1Sen</a> ThinkThank based in Baku, Azerbaijan.
                 </h3>
             </div>
         </div>
@@ -187,41 +187,41 @@
     <!--End Gallery Section -->
 
     <!-- Subscribe Section -->
-    <section class="subscribe-section">
-        <div class="auto-container">
-            <div class="sec-title-two text-center">
-                <h2>Subscribe</h2>
-            </div>
-            <div class="subscribe-form">
-                @if(Session::has('success'))
-                    <div class="alert alert-success">
-                        {{ Session::get('success') }}
-                        @php
-                            \Illuminate\Support\Facades\Session::forget('success');
-                        @endphp
-                    </div>
-                @endif
-                @if($errors->any())
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                @endif
-                <form method="post" action="{{ route("subscribe") }}">
-                    @csrf
-                    @method('POST')
-                    <div class="form-group">
-                        <input type="email" name="email" value="" placeholder="Your Email Address" required>
-                        <button type="submit" name="submit" class="theme-btn btn-style-three">Subscribe</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+{{--    <section class="subscribe-section">--}}
+{{--        <div class="auto-container">--}}
+{{--            <div class="sec-title-two text-center">--}}
+{{--                <h2>Subscribe</h2>--}}
+{{--            </div>--}}
+{{--            <div class="subscribe-form">--}}
+{{--                @if(Session::has('success'))--}}
+{{--                    <div class="alert alert-success">--}}
+{{--                        {{ Session::get('success') }}--}}
+{{--                        @php--}}
+{{--                            \Illuminate\Support\Facades\Session::forget('success');--}}
+{{--                        @endphp--}}
+{{--                    </div>--}}
+{{--                @endif--}}
+{{--                @if($errors->any())--}}
+{{--                    @if ($errors->any())--}}
+{{--                        <div class="alert alert-danger">--}}
+{{--                            <ul>--}}
+{{--                                @foreach ($errors->all() as $error)--}}
+{{--                                    <li>{{ $error }}</li>--}}
+{{--                                @endforeach--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
+{{--                @endif--}}
+{{--                <form method="post" action="{{ route("subscribe") }}">--}}
+{{--                    @csrf--}}
+{{--                    @method('POST')--}}
+{{--                    <div class="form-group">--}}
+{{--                        <input type="email" name="email" value="" placeholder="Your Email Address" required>--}}
+{{--                        <button type="submit" name="submit" class="theme-btn btn-style-three">Subscribe</button>--}}
+{{--                    </div>--}}
+{{--                </form>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
     <!-- Subscribe Section -->
 @endsection

@@ -59,10 +59,10 @@
                                             Palazzo Mandrilli (Guerrina) in the historic town of Cassine in the northern Italy is a beautifully preserved 17th-century residence. This noble Palazzo has witnessed centuries of Italian culture, art, and tradition.
                                         </div>
                                         <ul class="social-icon-two">
-                                            <li><a href="{{ setting()->facebook }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+{{--                                            <li><a href="{{ setting()->facebook }}" target="_blank"><i class="fa fa-facebook"></i></a></li>--}}
                                             <li><a href="{{ setting()->instagram }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
                                             <li><a href="{{ setting()->linkedin }}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a href="{{ setting()->x }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+{{--                                            <li><a href="{{ setting()->x }}" target="_blank"><i class="fa fa-twitter"></i></a></li>--}}
                                         </ul>
                                     </div>
                                 </div>
