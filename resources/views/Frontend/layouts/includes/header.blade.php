@@ -35,10 +35,10 @@
 
     <!--Social Links-->
     <ul class="social-links clearfix">
-        <li><a href="{{ setting()->facebook }}" target="_blank"><span class="fa fa-facebook-f"></span></a></li>
+{{--        <li><a href="{{ setting()->facebook }}" target="_blank"><span class="fa fa-facebook-f"></span></a></li>--}}
         <li><a href="{{ setting()->linkedin }}" target="_blank"><span class="fa fa-linkedin"></span></a></li>
         <li><a href="{{ setting()->instagram }}" target="_blank"><span class="fa fa-instagram"></span></a></li>
-        <li><a href="{{ setting()->x }}" target="_blank"><span class="fa fa-twitter"></span></a></li>
+{{--        <li><a href="{{ setting()->x }}" target="_blank"><span class="fa fa-twitter"></span></a></li>--}}
     </ul>
 
     <!-- Search Box -->
