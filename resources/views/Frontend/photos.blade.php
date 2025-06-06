@@ -30,11 +30,27 @@
                 <div class="filter-list row clearfix">
 
                     @forelse(photos() as $photo)
-                        <!-- Gallery Item-->
+                        @php
+                            $extension = pathinfo($photo->image, PATHINFO_EXTENSION);
+                        @endphp
+
+                            <!-- Gallery Item-->
                         <div class="others col-md-4 col-sm-6 col-xs-12">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <a href="{{ url("/") }}/storage/{{ $photo->image }}" data-fancybox="gallery"><img src="{{ url("/") }}/storage/{{ $photo->image }}" alt=""></a>
+                                    @if(in_array(strtolower($extension), ['mp4', 'webm', 'ogg']))
+                                        <a href="{{ url("/") }}/storage/{{ $photo->image }}" data-fancybox="gallery">
+                                            <video width="100%" controls>
+                                                <source src="{{ url("/") }}/storage/{{ $photo->image }}" type="video/{{ strtolower($extension) }}">
+                                                Tarayıcınız video etiketini desteklemiyor.
+                                            </video>
+                                        </a>
+                                    @else
+                                        <a href="{{ url("/") }}/storage/{{ $photo->image }}" data-fancybox="gallery">
+                                            <img src="{{ url("/") }}/storage/{{ $photo->image }}" alt="">
+                                        </a>
+                                    @endif
+
                                     <div class="overlay-box">
                                         <div class="content">
                                             <h3><a href="#">{{ $photo->name }}</a></h3>
@@ -46,6 +62,7 @@
                     @empty
                         No Data !
                     @endforelse
+
                 </div>
             </div>
         </div>
