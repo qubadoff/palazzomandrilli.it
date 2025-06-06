@@ -42,14 +42,14 @@
     </ul>
 
     <!-- Search Box -->
-    <div class="search-box">
-        <form method="post" action="#">
-            <div class="form-group">
-                <input type="search" name="search-field" value="" placeholder="Search" required="">
-                <button type="submit"><span class="fa fa-search"></span></button>
-            </div>
-        </form>
-    </div>
+{{--    <div class="search-box">--}}
+{{--        <form method="post" action="#">--}}
+{{--            <div class="form-group">--}}
+{{--                <input type="search" name="search-field" value="" placeholder="Search" required="">--}}
+{{--                <button type="submit"><span class="fa fa-search"></span></button>--}}
+{{--            </div>--}}
+{{--        </form>--}}
+{{--    </div>--}}
 
 </section>
 <!-- End / Hidden Bar -->
