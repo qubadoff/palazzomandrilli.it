@@ -1129,8 +1129,8 @@ img{
 
 .hidden-bar .social-links{
 	position:absolute;
-	bottom:70px;
-	left:0px;
+	bottom:10px;
+	left:0;
 	width:100%;
 	padding:0px 10px;
 	text-align:center;
