@@ -13,7 +13,7 @@
     <!-- Hidden Bar Wrapper -->
     <div class="hidden-bar-wrapper">
         <!--Logo-->
-        <div class="logo-box"><a href="{{ route("index") }}"><img src="{{ url('/') }}/storage/{{ setting()->logo_header }}" alt=""></a></div>
+        <div class="logo-box"><a href="{{ route("index") }}"><img src="{{ url('/') }}/storage/{{ setting()->logo_header }}" style="width: 150px; height: 150px;" alt=""></a></div>
 
         <!-- .Side-menu -->
         <div class="side-menu">

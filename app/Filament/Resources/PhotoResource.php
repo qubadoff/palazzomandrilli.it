@@ -26,7 +26,7 @@ class PhotoResource extends Resource
             ->schema([
                 Section::make([
                     TextInput::make('name')->required(),
-                    FileUpload::make('image')->required()->downloadable()->openable(),
+                    FileUpload::make('image')->required()->downloadable()->openable()->label('Image or Video')->maxSize(102400),
                 ]),
             ]);
     }

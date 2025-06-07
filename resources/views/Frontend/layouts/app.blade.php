@@ -51,7 +51,7 @@
                                 <div class="footer-widget about-widget">
                                     <div class="footer-logo">
                                         <figure>
-                                            <a href="{{ route("index") }}"><img src="{{ url('/') }}/storage/{{ setting()->logo_footer }}" alt=""></a>
+                                            <a href="{{ route("index") }}"><img src="{{ url('/') }}/storage/{{ setting()->logo_footer }}" style="width: 150px; height: 150px;" alt=""></a>
                                         </figure>
                                     </div>
                                     <div class="widget-content">
