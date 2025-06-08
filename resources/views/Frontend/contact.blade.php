@@ -24,17 +24,17 @@
                 <div class="inner-column">
                     <div class="info-box">
                         <h4>Location</h4>
-                        {{ setting()->location }}
+                        <b>{{ setting()->location }}</b>
                     </div>
 
                     <div class="info-box">
                         <h4>Phone</h4>
-                        <p>{{ setting()->phone }}</p>
+                        <a href="tel:{{ setting()->phone }}"><p>{{ setting()->phone }}</p></a>
                     </div>
 
                     <div class="info-box">
                         <h4>Email</h4>
-                        <p><a href="{{ setting()->email }}">{{ setting()->email }}</a></p>
+                        <p><a href="mailto:{{ setting()->email }}">{{ setting()->email }}</a></p>
                     </div>
                 </div>
             </div>
