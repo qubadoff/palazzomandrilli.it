@@ -1052,6 +1052,7 @@ img{
 
 .hidden-bar-wrapper {
 	height: 100%;
+	padding:70px 0px 140px;
 }
 
 .hidden-bar .logo-box img{
@@ -1128,8 +1129,8 @@ img{
 
 .hidden-bar .social-links{
 	position:absolute;
-	bottom:10px;
-	left:0;
+	bottom: 10px;
+	left:0px;
 	width:100%;
 	padding:0px 10px;
 	text-align:center;
