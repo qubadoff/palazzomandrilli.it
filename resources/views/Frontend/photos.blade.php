@@ -39,17 +39,18 @@
                             <div class="inner-box">
                                 <div class="image-box">
                                     @if(in_array(strtolower($extension), ['mp4', 'webm', 'ogg']))
-                                        <a href="{{ url("/") }}/storage/{{ $photo->image }}" data-fancybox="gallery">
-                                            <video width="100%" controls>
-                                                <source src="{{ url("/") }}/storage/{{ $photo->image }}" type="video/{{ strtolower($extension) }}">
-                                                Sorry ! Your browser does not support embedded videos !
+                                        <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                            <video controls preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                                                <source src="{{ asset('storage/' . $photo->image) }}" type="video/{{ strtolower($extension) }}">
+                                                Your browser does not support the video tag.
                                             </video>
-                                        </a>
+                                        </div>
                                     @else
-                                        <a href="{{ url("/") }}/storage/{{ $photo->image }}" data-fancybox="gallery">
-                                            <img src="{{ url("/") }}/storage/{{ $photo->image }}" alt="">
+                                        <a href="{{ asset('storage/' . $photo->image) }}" data-fancybox="gallery">
+                                            <img src="{{ asset('storage/' . $photo->image) }}" alt="" class="img-fluid">
                                         </a>
                                     @endif
+
 
                                     <div class="overlay-box">
                                         <div class="content">
