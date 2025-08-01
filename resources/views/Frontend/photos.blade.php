@@ -32,37 +32,48 @@
                     @forelse(photos() as $photo)
                         @php
                             $extension = pathinfo($photo->image, PATHINFO_EXTENSION);
+                            $isVideo = in_array(strtolower($extension), ['mp4', 'webm', 'ogg']);
                         @endphp
 
-                            <!-- Gallery Item-->
                         <div class="others col-md-4 col-sm-6 col-xs-12">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    @if(in_array(strtolower($extension), ['mp4', 'webm', 'ogg']))
-                                        <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                    @if($isVideo)
+                                        <!-- Video Box -->
+                                        <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; overflow: hidden;">
                                             <video controls preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
                                                 <source src="{{ asset('storage/' . $photo->image) }}" type="video/{{ strtolower($extension) }}">
                                                 Your browser does not support the video tag.
                                             </video>
                                         </div>
                                     @else
+                                        <!-- Image Box -->
                                         <a href="{{ asset('storage/' . $photo->image) }}" data-fancybox="gallery">
-                                            <img src="{{ asset('storage/' . $photo->image) }}" alt="" class="img-fluid">
+                                            <img src="{{ asset('storage/' . $photo->image) }}" alt="{{ $photo->name }}" class="img-fluid" style="border-radius: 10px;">
                                         </a>
+
+                                        <div class="overlay-box">
+                                            <div class="content">
+                                                <h3><a href="#">{{ $photo->name }}</a></h3>
+                                            </div>
+                                        </div>
                                     @endif
+                                </div>
 
-
-                                    <div class="overlay-box">
-                                        <div class="content">
-                                            <h3><a href="#">{{ $photo->name }}</a></h3>
+                                @if($isVideo)
+                                    <!-- Video başlığı dışarı alınmalı -->
+                                    <div class="overlay-box mt-2">
+                                        <div class="content text-center">
+                                            <h3 style="font-size: 16px;">{{ $photo->name }}</h3>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
                             </div>
                         </div>
                     @empty
-                        No Data !
+                        <p>No Data!</p>
                     @endforelse
+
                 </div>
             </div>
         </div>
