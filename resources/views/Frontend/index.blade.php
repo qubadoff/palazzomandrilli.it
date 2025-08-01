@@ -162,29 +162,64 @@
             </div>
 
             <div class="items-container clearfix">
-
                 @forelse(photos() as $photo)
-                    <!--Default Portfolio Item-->
+                    @php
+                        $extension = pathinfo($photo->image, PATHINFO_EXTENSION);
+                        $isVideo = in_array(strtolower($extension), ['mp4', 'webm', 'ogg', 'mov']);
+                    @endphp
+
+                        <!--Gallery Item-->
                     <div class="gallery-item masonry-item small-column all ancient other">
                         <div class="inner-box">
-                            <div class="image-box">
-                                <img src="{{ url('/') }}/storage/{{ $photo->image }}" alt="">
-                                <div class="overlay-box">
+                            <div class="image-box" style="position: relative; width: 100%; padding-bottom: 75%; border-radius: 10px; overflow: hidden;">
+                                @if($isVideo)
+                                    <!-- Video görünümü -->
+                                    <video
+                                        controls
+                                        preload="metadata"
+                                        playsinline
+                                        muted
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+                                    >
+                                        <source src="{{ asset('storage/' . $photo->image) }}" type="video/{{ strtolower($extension) }}">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                @else
+                                    <!-- Image görünümü -->
+                                    <img
+                                        src="{{ asset('storage/' . $photo->image) }}"
+                                        alt="{{ $photo->name }}"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+                                    >
+                                    <div class="overlay-box">
+                                        <div class="content">
+                                            <a href="{{ asset('storage/' . $photo->image) }}" data-fancybox="gallery">
+                                                <span class="icon flaticon-unlink-1"></span>
+                                            </a>
+                                            <h3>{{ $photo->name }}</h3>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+
+                            @if($isVideo)
+                                <!-- Video başlığı -->
+                                <div class="overlay-box mt-2 text-center">
                                     <div class="content">
-                                        <a href="{{ url('/') }}/storage/{{ $photo->image }}" data-fancybox="gallery"><span class="icon flaticon-unlink-1"></span></a>
-                                        <h3>{{ $photo->name }}</h3>
+                                        <h3 style="font-size: 16px;">{{ $photo->name }}</h3>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 @empty
-                    No Data !
+                    <p>No Data!</p>
                 @endforelse
             </div>
         </div>
     </section>
-    <!--End Gallery Section -->
+    <!--End Gallery Section-->
+
 
     <!-- Subscribe Section -->
 {{--    <section class="subscribe-section">--}}
