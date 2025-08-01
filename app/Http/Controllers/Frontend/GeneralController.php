@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Enum\EventStatusEnum;
 use App\Enum\SliderStatusEnum;
 use App\Http\Controllers\Controller;
+use App\Mail\NewContactMessageMail;
 use App\Models\ContactMessage;
 use App\Models\Event;
 use App\Models\Page;
@@ -12,6 +13,7 @@ use App\Models\Slider;
 use App\Models\Subscribe;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class GeneralController extends Controller
@@ -92,6 +94,10 @@ class GeneralController extends Controller
             'email' => $request->email,
             'message' => $request->message,
         ]);
+
+        Mail::to('palazzomandrilli@gmail.com')->send(
+            new NewContactMessageMail($request->name, $request->email, $request->message)
+        );
 
         return redirect()->route('contact')->with('success', 'Message sent successfully!');
     }
