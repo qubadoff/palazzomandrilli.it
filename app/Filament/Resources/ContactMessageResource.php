@@ -68,4 +68,11 @@ class ContactMessageResource extends Resource
             'edit' => Pages\EditContactMessage::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationBadge(): ?string
+    {
+        $modelClass = static::$model;
+
+        return (string) $modelClass::count();
+    }
 }
