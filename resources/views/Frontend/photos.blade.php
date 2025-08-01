@@ -32,7 +32,7 @@
                     @forelse(photos() as $photo)
                         @php
                             $extension = pathinfo($photo->image, PATHINFO_EXTENSION);
-                            $isVideo = in_array(strtolower($extension), ['mp4', 'webm', 'ogg']);
+                            $isVideo = in_array(strtolower($extension), ['mp4', 'webm', 'ogg', 'mov']);
                         @endphp
 
                         <div class="others col-md-4 col-sm-6 col-xs-12">
