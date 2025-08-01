@@ -25,6 +25,7 @@
                         <li><a href="{{ route("page", $page->slug) }}">{{ $page->title }}</a></li>
                     @endforeach
                 @endif
+                <li><a href="{{ route("events") }}">Our Events</a></li>
                 <li><a href="{{ route("photos") }}">Photos</a></li>
                 <li><a href="{{ route("contact") }}">Contact us</a></li>
             </ul>
