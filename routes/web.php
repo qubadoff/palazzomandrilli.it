@@ -10,5 +10,5 @@ Route::get('/event/{slug}', [GeneralController::class, 'singleEvent'])->name('si
 Route::get('/photos', [GeneralController::class, 'photos'])->name('photos');
 Route::get('/contact', [GeneralController::class, 'contact'])->name('contact');
 
-Route::post('/sendMessage', [GeneralController::class, 'sendMessage'])->name('sendMessage')->middleware('throttle:2,1');
-Route::post('/subscribe', [GeneralController::class, 'subscribe'])->name('subscribe')->middleware('throttle:2,1');
+Route::post('/sendMessage', [GeneralController::class, 'sendMessage'])->name('sendMessage')->middleware('throttle:1,1');
+Route::post('/subscribe', [GeneralController::class, 'subscribe'])->name('subscribe')->middleware('throttle:1,1');
