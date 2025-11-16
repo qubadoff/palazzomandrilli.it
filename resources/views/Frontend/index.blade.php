@@ -110,7 +110,7 @@
                     <b>Palazzo Mandrilli (Guerrina)</b> in the historic town of Cassine in the northern Italy is a beautifully preserved 17th-century residence.
                     This noble Palazzo has witnessed centuries of Italian culture, art, and tradition. With its original brick walls, elegant arches, frescos, mosaics and quiet inner courtyards, Palazzo Mandrilli offers a unique atmosphere—where history lives in every detail.
                     Whether you're here to admire its architecture, attend a cultural event, or simply experience the quiet soul of the Piedmontese countryside, we welcome you to discover the spirit of Palazzo Guerrina—where every corner tells a story.
-                    This Gallery is owned by <a href="https://instagram.com/sen1sen.az" target="_blank" style="color: blue;">Sen1Sen</a> ThinkThank based in Baku, Azerbaijan.
+                    This Gallery is owned by <a href="https://instagram.com/sen1sen.az" target="_blank" style="color: blue;">Sen1Sen</a> Think Thank based in Baku, Azerbaijan.
                 </h3>
             </div>
         </div>

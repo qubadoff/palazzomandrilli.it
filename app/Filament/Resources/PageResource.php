@@ -32,6 +32,10 @@ class PageResource extends Resource
         return $form
             ->schema([
                 Section::make([
+                    Select::make('parent_id')
+                        ->label('Parent Page')
+                        ->relationship('parent', 'title')
+                        ->nullable(),
                     TextInput::make('title')
                         ->required()
                         ->live(debounce: '1000')
