@@ -23,11 +23,13 @@
                 @if (pages()->count() > 0)
                     @foreach (pages() as $page)
                         <li class="{{ $page->children->count() > 0 ? 'dropdown' : '' }}">
-                            <a href="{{ route("page", $page->slug) }}" class="parent-link">
-                                {{ $page->title }}
-                            </a>
+                            <div class="menu-item-wrapper">
+                                <a href="{{ route("page", $page->slug) }}">{{ $page->title }}</a>
+                                @if ($page->children->count() > 0)
+                                    <span class="dropdown-toggle"><i class="fa fa-angle-down"></i></span>
+                                @endif
+                            </div>
                             @if ($page->children->count() > 0)
-                                <span class="dropdown-toggle"><i class="fa fa-angle-down"></i></span>
                                 <ul class="submenu">
                                     @foreach ($page->children as $child)
                                         <li><a href="{{ route("page", $child->slug) }}">{{ $child->title }}</a></li>
@@ -61,18 +63,23 @@
         position: relative;
     }
 
-    .navigation li.dropdown > a.parent-link {
-        display: inline-block;
-        padding-right: 5px;
+    .navigation li .menu-item-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
-    .navigation li.dropdown .dropdown-toggle {
+    .navigation li .menu-item-wrapper a {
+        flex: 1;
+    }
+
+    .navigation li .dropdown-toggle {
         cursor: pointer;
-        display: inline-block;
-        padding: 10px;
-        margin-left: 5px;
+        padding: 10px 15px;
+        margin-left: 10px;
         transition: transform 0.3s ease;
         user-select: none;
+        flex-shrink: 0;
     }
 
     .navigation li.dropdown.active .dropdown-toggle {
@@ -83,7 +90,8 @@
         display: none;
         padding-left: 20px;
         list-style: none;
-        margin-top: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
 
     .navigation li.dropdown.active .submenu {
@@ -91,7 +99,7 @@
     }
 
     .navigation .submenu li {
-        margin: 10px 0;
+        margin: 8px 0;
     }
 
     .navigation .submenu li a {
