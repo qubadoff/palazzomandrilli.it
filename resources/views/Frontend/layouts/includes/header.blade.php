@@ -58,59 +58,129 @@
 <!-- End / Hidden Bar -->
 
 <style>
-    /* Dropdown Menü Stilleri */
-    .navigation li.dropdown {
+    /* Dropdown Menü Stilleri - Site Temasına Uygun */
+    .hidden-bar .side-menu .navigation li.dropdown {
         position: relative;
     }
 
-    .navigation li .menu-item-wrapper {
+    .hidden-bar .side-menu .navigation li .menu-item-wrapper {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        background: transparent;
+        transition: all 0.3s ease;
     }
 
-    .navigation li .menu-item-wrapper a {
+    .hidden-bar .side-menu .navigation li .menu-item-wrapper:hover {
+        background: rgba(209, 175, 120, 0.08);
+    }
+
+    .hidden-bar .side-menu .navigation li .menu-item-wrapper a {
         flex: 1;
+        padding: 12px 15px;
+        margin: 0;
     }
 
-    .navigation li .dropdown-toggle {
+    .hidden-bar .side-menu .navigation li .dropdown-toggle {
         cursor: pointer;
-        padding: 10px 15px;
-        margin-left: 10px;
-        transition: transform 0.3s ease;
+        padding: 12px 15px;
+        color: #ffffff;
+        font-size: 14px;
+        transition: all 0.3s ease;
         user-select: none;
         flex-shrink: 0;
+        background: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 48px;
     }
 
-    .navigation li.dropdown.active .dropdown-toggle {
+    .hidden-bar .side-menu .navigation li .dropdown-toggle:hover {
+        color: #d1af78;
+    }
+
+    .hidden-bar .side-menu .navigation li.dropdown.active .dropdown-toggle {
+        color: #d1af78;
         transform: rotate(180deg);
     }
 
-    .navigation .submenu {
+    .hidden-bar .side-menu .navigation .submenu {
         display: none;
-        padding-left: 20px;
+        padding: 0;
         list-style: none;
-        margin-top: 5px;
-        margin-bottom: 5px;
+        margin: 0;
+        background: rgba(0, 0, 0, 0.3);
+        border-top: 1px solid rgba(209, 175, 120, 0.2);
     }
 
-    .navigation li.dropdown.active .submenu {
+    .hidden-bar .side-menu .navigation li.dropdown.active .submenu {
         display: block;
+        animation: slideDown 0.3s ease;
     }
 
-    .navigation .submenu li {
-        margin: 8px 0;
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            max-height: 0;
+        }
+        to {
+            opacity: 1;
+            max-height: 500px;
+        }
     }
 
-    .navigation .submenu li a {
+    .hidden-bar .side-menu .navigation .submenu li {
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .hidden-bar .side-menu .navigation .submenu li:last-child {
+        border-bottom: none;
+    }
+
+    .hidden-bar .side-menu .navigation .submenu li a {
         font-size: 14px;
-        padding: 5px 0;
+        padding: 10px 15px 10px 35px;
         display: block;
+        color: rgba(255, 255, 255, 0.8);
+        text-transform: capitalize;
+        position: relative;
+        transition: all 0.3s ease;
     }
 
-    .navigation .submenu li a:hover {
-        padding-left: 5px;
-        transition: padding-left 0.3s ease;
+    .hidden-bar .side-menu .navigation .submenu li a:before {
+        content: "›";
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+        color: #d1af78;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .hidden-bar .side-menu .navigation .submenu li a:hover {
+        padding-left: 40px;
+        color: #d1af78;
+        background: rgba(209, 175, 120, 0.1);
+    }
+
+    .hidden-bar .side-menu .navigation .submenu li a:hover:before {
+        opacity: 1;
+        left: 22px;
+    }
+
+    /* Parent link aktif olduğunda stil */
+    .hidden-bar .side-menu .navigation li.dropdown.active > .menu-item-wrapper {
+        background: rgba(209, 175, 120, 0.08);
+        border-bottom: none;
+    }
+
+    .hidden-bar .side-menu .navigation li.dropdown.active > .menu-item-wrapper a {
+        color: #d1af78;
     }
 </style>
 
