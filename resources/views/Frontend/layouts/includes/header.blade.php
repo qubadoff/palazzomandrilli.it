@@ -1,3 +1,33 @@
+
+<style>
+    .sub-menu {
+        display: none;
+        margin-left: 15px;
+    }
+    .sub-menu.open {
+        display: block;
+    }
+    .dropdown-btn {
+        cursor: pointer;
+        margin-left: 8px;
+    }
+    .dropdown-btn.active i {
+        transform: rotate(180deg);
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.dropdown-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                const submenu = this.nextElementSibling;
+                submenu.classList.toggle('open');
+                this.classList.toggle('active');
+            });
+        });
+    });
+</script>
+
 <!-- Hidden Navigation Bar -->
 <section class="hidden-bar left-align">
     <!-- Hidden Nav Toggler -->
