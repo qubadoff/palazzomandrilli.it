@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ContactMessageResource\Pages;
 use App\Models\ContactMessage;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -24,7 +25,7 @@ class ContactMessageResource extends Resource
             ->schema([
                 TextInput::make('name')->required(),
                 TextInput::make('email')->required(),
-                TextInput::make('message')->required(),
+                RichEditor::make('message')->required(),
             ]);
     }
 
