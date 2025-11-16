@@ -59,6 +59,7 @@ class PageResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')->sortable(),
+                TextColumn::make('parent.title')->searchable(),
                 TextColumn::make('title')->searchable(),
                 TextColumn::make('status')->badge(),
                 Tables\Columns\ImageColumn::make('image'),
