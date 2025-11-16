@@ -12,27 +12,56 @@
 
     <!-- Hidden Bar Wrapper -->
     <div class="hidden-bar-wrapper">
-        <!--Logo-->
-        <div class="logo-box"><a href="{{ route("index") }}"><img src="{{ url('/') }}/storage/{{ setting()->logo_header }}" style="width: 150px; height: 150px;" alt=""></a></div>
 
-        <!-- .Side-menu -->
+        <!-- Logo -->
+        <div class="logo-box">
+            <a href="{{ route('index') }}">
+                <img src="{{ url('/') }}/storage/{{ setting()->logo_header }}"
+                     style="width:150px; height:150px;" alt="">
+            </a>
+        </div>
+
+        <!-- Side Menu -->
         <div class="side-menu">
-            <!--navigation-->
             <ul class="navigation clearfix">
-                <li><a href="{{ route("index") }}">Home</a></li>
-                @if (pages()->count() > 0)
-                    @foreach (pages() as $page)
-                        <li><a href="{{ route("page", $page->slug) }}">{{ $page->title }}</a></li>
-                    @endforeach
-                @endif
-                <li><a href="{{ route("events") }}">Our Events</a></li>
-                <li><a href="{{ route("photos") }}">Photos</a></li>
-                <li><a href="{{ route("contact") }}">Contact us</a></li>
+
+                <li><a href="{{ route('index') }}">Home</a></li>
+
+                @foreach (pages() as $page)
+                    <li class="menu-item-has-children">
+
+                        <!-- Parent Link -->
+                        <a href="{{ route('page', $page->slug) }}">
+                            {{ $page->title }}
+                        </a>
+
+                        <!-- Eğer child varsa dropdown ikonu -->
+                        @if($page->children->count() > 0)
+                            <span class="dropdown-btn">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+
+                            <!-- Child Menu -->
+                            <ul class="sub-menu">
+                                @foreach ($page->children as $child)
+                                    <li>
+                                        <a href="{{ route('page', $child->slug) }}">
+                                            {{ $child->title }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    </li>
+                @endforeach
+
+                <li><a href="{{ route('events') }}">Our Events</a></li>
+                <li><a href="{{ route('photos') }}">Photos</a></li>
+                <li><a href="{{ route('contact') }}">Contact us</a></li>
             </ul>
         </div>
-        <!-- /.Side-menu -->
+    </div>
 
-    </div><!-- / Hidden Bar Wrapper -->
 
     <!--Social Links-->
     <ul class="social-links clearfix">

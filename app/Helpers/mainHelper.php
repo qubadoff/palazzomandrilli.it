@@ -8,11 +8,20 @@ use Illuminate\Database\Eloquent\Collection;
 
 if (!function_exists('pages'))
 {
-    function pages(): Collection
+    function pages(): \Illuminate\Support\Collection
     {
-        return Page::query()->where('status', PageStatusEnum::ACTIVE)->orderBy('sort_order')->get();
+        return Page::query()
+            ->whereNull('parent_id')
+            ->where('status', PageStatusEnum::ACTIVE)
+            ->with(['children' => function ($q) {
+                $q->where('status', PageStatusEnum::ACTIVE)
+                    ->orderBy('sort_order');
+            }])
+            ->orderBy('sort_order')
+            ->get();
     }
 }
+
 
 if (!function_exists('photos'))
 {

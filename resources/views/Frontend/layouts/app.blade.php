@@ -15,6 +15,24 @@
     <link href="{{ asset("") }}assets/css/style.css" rel="stylesheet">
     <link href="{{ asset("") }}assets/css/responsive.css" rel="stylesheet">
 
+    <style>
+        .sub-menu {
+            display: none;
+            margin-left: 15px;
+        }
+        .sub-menu.open {
+            display: block;
+        }
+        .dropdown-btn {
+            cursor: pointer;
+            margin-left: 8px;
+        }
+        .dropdown-btn.active i {
+            transform: rotate(180deg);
+        }
+    </style>
+
+
 
 
     <link rel="shortcut icon" href="{{ asset("") }}assets/images/favicon.png" type="image/x-icon">
@@ -138,6 +156,20 @@
 
 </div>
 <!--End pagewrapper-->
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.dropdown-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                const submenu = this.nextElementSibling;
+                submenu.classList.toggle('open');
+                this.classList.toggle('active');
+            });
+        });
+    });
+</script>
+
 
 <!--Scroll to top-->
 <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-double-up"></span></div>
