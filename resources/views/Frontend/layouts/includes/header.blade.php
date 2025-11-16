@@ -77,24 +77,26 @@
 
     .hidden-bar .side-menu .navigation li .menu-item-wrapper a {
         flex: 1;
-        padding: 12px 15px;
+        padding: 12px 10px 12px 15px;
         margin: 0;
     }
 
     .hidden-bar .side-menu .navigation li .dropdown-toggle {
         cursor: pointer;
-        padding: 12px 15px;
+        padding: 12px 20px;
         color: #ffffff;
-        font-size: 14px;
+        font-size: 18px;
         transition: all 0.3s ease;
         user-select: none;
         flex-shrink: 0;
-        background: transparent;
+        background: rgba(209, 175, 120, 0.15);
         border: none;
+        border-left: 1px solid rgba(209, 175, 120, 0.3);
         display: flex;
         align-items: center;
         justify-content: center;
-        min-width: 48px;
+        min-width: 60px;
+        margin-left: -5px;
     }
 
     .hidden-bar .side-menu .navigation li .dropdown-toggle:hover {
