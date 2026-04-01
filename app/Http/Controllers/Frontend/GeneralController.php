@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Enum\EventStatusEnum;
+use App\Enum\ExhibitionHallStatusEnum;
 use App\Enum\SliderStatusEnum;
 use App\Http\Controllers\Controller;
 use App\Mail\NewContactMessageMail;
 use App\Models\ContactMessage;
 use App\Models\Event;
+use App\Models\ExhibitionHall;
 use App\Models\Page;
 use App\Models\Slider;
 use App\Models\Subscribe;
@@ -74,6 +76,30 @@ class GeneralController extends Controller
         }
 
         return view('Frontend.singleEvent', compact('event'));
+    }
+
+    public function exhibitionHalls(): View
+    {
+        $exhibitionHalls = ExhibitionHall::query()
+            ->where('status', ExhibitionHallStatusEnum::ACTIVE)
+            ->whereNull('deleted_at')
+            ->latest()
+            ->paginate(20);
+
+        return view('Frontend.exhibitionHalls', compact('exhibitionHalls'));
+    }
+
+    public function singleExhibitionHall($slug): View
+    {
+        $exhibitionHall = ExhibitionHall::query()
+            ->where('slug', $slug)
+            ->first();
+
+        if (!$exhibitionHall) {
+            abort(404);
+        }
+
+        return view('Frontend.singleExhibitionHall', compact('exhibitionHall'));
     }
 
     public function contact(): View
