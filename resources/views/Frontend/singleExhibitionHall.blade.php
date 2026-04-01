@@ -22,17 +22,12 @@
             <div class="row clearfix">
                 <!--Content Side-->
                 <div class="content-side col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="event-detail">
-                        <!-- Exhibition Hall Detail -->
+                    <div class="event-detail detail-page-content">
                         <div class="event-block-two">
                             <div class="inner-box">
                                 <div class="lower-content">
-                                    <h3>
-                                        {{ $exhibitionHall->description }}
-                                    </h3>
-                                    <p>
-                                        {!! $exhibitionHall->body !!}
-                                    </p>
+                                    <h3>{{ $exhibitionHall->description }}</h3>
+                                    <p>{!! $exhibitionHall->body !!}</p>
                                 </div>
                             </div>
                         </div>

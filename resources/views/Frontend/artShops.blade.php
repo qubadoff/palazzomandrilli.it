@@ -16,18 +16,21 @@
     <!--End Page Title-->
 
     <!-- Art Shop Section -->
-    <section class="event-section event-grid">
+    <section class="event-section event-grid card-grid-section">
         <div class="auto-container">
             <div class="row clearfix">
                 @forelse($artShops as $artShop)
-                    <!-- Art Shop Block -->
                     <div class="event-block col-md-4 col-sm-6 col-xs-12">
                         <div class="inner-box">
-                            <div class="image-box" style="height: 280px; overflow: hidden;"><a href="{{ route("singleArtShop", ['slug' => $artShop->slug]) }}"><img src="{{ url('/') }}/storage/{{ $artShop->image }}" alt="" style="width: 100%; height: 280px; object-fit: cover;"></a></div>
+                            <div class="card-image">
+                                <a href="{{ route("singleArtShop", ['slug' => $artShop->slug]) }}">
+                                    <img src="{{ url('/') }}/storage/{{ $artShop->image }}" alt="{{ $artShop->title }}">
+                                </a>
+                            </div>
                             <div class="lower-content">
                                 <h3><a href="{{ route("singleArtShop", ['slug' => $artShop->slug]) }}">{{ $artShop->title }}</a></h3>
                                 @if($artShop->price)
-                                    <div class="price" style="font-size: 18px; font-weight: 700; color: #d1af78; margin-bottom: 8px;">&euro;{{ number_format($artShop->price, 2) }}</div>
+                                    <div class="price-tag">&euro;{{ number_format($artShop->price, 2) }}</div>
                                 @endif
                                 <div class="text">{{ Str::limit($artShop->description, 120) }}</div>
                                 <a href="{{ route("singleArtShop", ['slug' => $artShop->slug]) }}" class="read-more">Keep Reading <i>&rarr;</i></a>
@@ -35,17 +38,13 @@
                         </div>
                     </div>
                 @empty
-                    No Data !
+                    <div class="no-data-message">No Data !</div>
                 @endforelse
             </div>
 
             @if($artShops->hasPages())
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="styled-pagination">
-                            {{ $artShops->links() }}
-                        </div>
-                    </div>
+                <div class="pagination-wrapper">
+                    {{ $artShops->links() }}
                 </div>
             @endif
         </div>

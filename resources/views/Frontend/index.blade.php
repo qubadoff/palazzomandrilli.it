@@ -119,17 +119,20 @@
 
     @if($events->count() > 0)
         <!-- Event Section -->
-        <section class="event-section">
+        <section class="event-section card-grid-section">
             <div class="auto-container">
                 <div class="sec-title-two text-center">
                     <h2>Our Events</h2>
                 </div>
                 <div class="row clearfix">
                     @forelse($events as $event)
-                        <!-- Even Block -->
                         <div class="event-block col-md-4 col-sm-6 col-xs-12">
                             <div class="inner-box">
-                                <div class="image-box"><a href="{{ route("singleEvent", ['slug' => $event->slug]) }}"><img src="{{ url('/') }}/storage/{{ $event->image }}" alt=""></a></div>
+                                <div class="card-image">
+                                    <a href="{{ route("singleEvent", ['slug' => $event->slug]) }}">
+                                        <img src="{{ url('/') }}/storage/{{ $event->image }}" alt="{{ $event->name }}">
+                                    </a>
+                                </div>
                                 <div class="lower-content">
                                     <h3><a href="{{ route("singleEvent", ['slug' => $event->slug]) }}">{{ $event->name }}</a></h3>
                                     <a href="{{ route("singleEvent", ['slug' => $event->slug]) }}" class="read-more">Keep Reading <i>&rarr;</i></a>
@@ -137,7 +140,7 @@
                             </div>
                         </div>
                     @empty
-                        No Data !
+                        <div class="no-data-message">No Data !</div>
                     @endforelse
                 </div>
                 <div class="btn-box">

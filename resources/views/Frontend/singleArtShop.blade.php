@@ -22,20 +22,15 @@
             <div class="row clearfix">
                 <!--Content Side-->
                 <div class="content-side col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="event-detail">
-                        <!-- Art Shop Detail -->
+                    <div class="event-detail detail-page-content">
                         <div class="event-block-two">
                             <div class="inner-box">
                                 <div class="lower-content">
-                                    <h3>
-                                        {{ $artShop->description }}
-                                    </h3>
+                                    <h3>{{ $artShop->description }}</h3>
                                     @if($artShop->price)
-                                        <div class="price" style="font-size: 22px; font-weight: 700; color: #d1af78; margin: 15px 0;">&euro;{{ number_format($artShop->price, 2) }}</div>
+                                        <div class="price-tag">&euro;{{ number_format($artShop->price, 2) }}</div>
                                     @endif
-                                    <p>
-                                        {!! $artShop->body !!}
-                                    </p>
+                                    <p>{!! $artShop->body !!}</p>
                                 </div>
                             </div>
                         </div>
