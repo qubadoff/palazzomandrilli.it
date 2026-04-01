@@ -42,6 +42,7 @@ class ArtShopResource extends Resource
                         ArtShopStatusEnum::ACTIVE->value => ArtShopStatusEnum::ACTIVE->getLabel(),
                         ArtShopStatusEnum::INACTIVE->value => ArtShopStatusEnum::INACTIVE->getLabel(),
                     ])->required(),
+                    TextInput::make('price')->numeric()->nullable()->suffix('EUR'),
                     FileUpload::make('image')->image()->required()->downloadable()->openable(),
                 ]),
             ]);
@@ -53,6 +54,7 @@ class ArtShopResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('id')->sortable(),
                 Tables\Columns\TextColumn::make('title')->searchable(),
+                Tables\Columns\TextColumn::make('price')->suffix(' EUR')->sortable()->placeholder('-'),
                 Tables\Columns\TextColumn::make('status')->badge(),
                 Tables\Columns\ImageColumn::make('image'),
             ])

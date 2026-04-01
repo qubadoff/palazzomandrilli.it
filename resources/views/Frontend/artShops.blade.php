@@ -26,6 +26,9 @@
                             <div class="image-box"><a href="{{ route("singleArtShop", ['slug' => $artShop->slug]) }}"><img src="{{ url('/') }}/storage/{{ $artShop->image }}" alt=""></a></div>
                             <div class="lower-content">
                                 <h3><a href="{{ route("singleArtShop", ['slug' => $artShop->slug]) }}">{{ $artShop->title }}</a></h3>
+                                @if($artShop->price)
+                                    <div class="price" style="font-size: 18px; font-weight: 700; color: #d1af78; margin-bottom: 8px;">&euro;{{ number_format($artShop->price, 2) }}</div>
+                                @endif
                                 <div class="text">{{ Str::limit($artShop->description, 120) }}</div>
                                 <a href="{{ route("singleArtShop", ['slug' => $artShop->slug]) }}" class="read-more">Keep Reading <i>&rarr;</i></a>
                             </div>

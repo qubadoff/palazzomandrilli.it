@@ -30,6 +30,9 @@
                                     <h3>
                                         {{ $artShop->description }}
                                     </h3>
+                                    @if($artShop->price)
+                                        <div class="price" style="font-size: 22px; font-weight: 700; color: #d1af78; margin: 15px 0;">&euro;{{ number_format($artShop->price, 2) }}</div>
+                                    @endif
                                     <p>
                                         {!! $artShop->body !!}
                                     </p>
