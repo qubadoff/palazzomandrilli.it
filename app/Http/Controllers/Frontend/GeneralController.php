@@ -94,6 +94,7 @@ class GeneralController extends Controller
     public function singleArtShop($slug): View
     {
         $artShop = ArtShop::query()
+            ->with('images')
             ->where('slug', $slug)
             ->first();
 

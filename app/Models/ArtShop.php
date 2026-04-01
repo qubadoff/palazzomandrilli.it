@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enum\ArtShopStatusEnum;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ArtShop extends Model
@@ -17,4 +18,9 @@ class ArtShop extends Model
     protected $casts = [
         'status' => ArtShopStatusEnum::class,
     ];
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(ArtShopImage::class)->orderBy('sort_order');
+    }
 }

@@ -6,6 +6,7 @@ use App\Enum\ArtShopStatusEnum;
 use App\Filament\Resources\ArtShopResource\Pages;
 use App\Models\ArtShop;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -44,6 +45,18 @@ class ArtShopResource extends Resource
                     ])->required(),
                     TextInput::make('price')->numeric()->nullable()->suffix('EUR'),
                     FileUpload::make('image')->image()->required()->downloadable()->openable(),
+                ]),
+                Section::make('Gallery Images')->schema([
+                    Repeater::make('images')
+                        ->relationship()
+                        ->schema([
+                            FileUpload::make('image')->image()->required()->downloadable()->openable(),
+                        ])
+                        ->orderColumn('sort_order')
+                        ->reorderable()
+                        ->collapsible()
+                        ->defaultItems(0)
+                        ->addActionLabel('Add Image'),
                 ]),
             ]);
     }
