@@ -5,8 +5,8 @@ namespace App\Filament\Resources;
 use App\Enum\ArtShopStatusEnum;
 use App\Filament\Resources\ArtShopResource\Pages;
 use App\Models\ArtShop;
+use App\Filament\Resources\ArtShopResource\RelationManagers;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -46,18 +46,6 @@ class ArtShopResource extends Resource
                     TextInput::make('price')->numeric()->nullable()->suffix('EUR'),
                     FileUpload::make('image')->image()->required()->downloadable()->openable(),
                 ]),
-                Section::make('Gallery Images')->schema([
-                    Repeater::make('images')
-                        ->relationship()
-                        ->schema([
-                            FileUpload::make('image')->image()->required()->downloadable()->openable(),
-                        ])
-                        ->orderColumn('sort_order')
-                        ->reorderable()
-                        ->collapsible()
-                        ->defaultItems(0)
-                        ->addActionLabel('Add Image'),
-                ]),
             ]);
     }
 
@@ -89,7 +77,7 @@ class ArtShopResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\ImagesRelationManager::class,
         ];
     }
 
