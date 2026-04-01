@@ -39,6 +39,7 @@
                         </li>
                     @endforeach
                 @endif
+                <li><a href="{{ route("artShops") }}">Art Shop</a></li>
                 <li><a href="{{ route("exhibitionHalls") }}">Exhibition Halls</a></li>
                 <li><a href="{{ route("events") }}">Our Events</a></li>
                 <li><a href="{{ route("photos") }}">Photos</a></li>

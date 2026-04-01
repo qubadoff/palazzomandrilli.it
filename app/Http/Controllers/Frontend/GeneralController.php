@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Enum\ArtShopStatusEnum;
 use App\Enum\EventStatusEnum;
 use App\Enum\ExhibitionHallStatusEnum;
 use App\Enum\SliderStatusEnum;
 use App\Http\Controllers\Controller;
 use App\Mail\NewContactMessageMail;
+use App\Models\ArtShop;
 use App\Models\ContactMessage;
 use App\Models\Event;
 use App\Models\ExhibitionHall;
@@ -76,6 +78,30 @@ class GeneralController extends Controller
         }
 
         return view('Frontend.singleEvent', compact('event'));
+    }
+
+    public function artShops(): View
+    {
+        $artShops = ArtShop::query()
+            ->where('status', ArtShopStatusEnum::ACTIVE)
+            ->whereNull('deleted_at')
+            ->latest()
+            ->paginate(20);
+
+        return view('Frontend.artShops', compact('artShops'));
+    }
+
+    public function singleArtShop($slug): View
+    {
+        $artShop = ArtShop::query()
+            ->where('slug', $slug)
+            ->first();
+
+        if (!$artShop) {
+            abort(404);
+        }
+
+        return view('Frontend.singleArtShop', compact('artShop'));
     }
 
     public function exhibitionHalls(): View

@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [GeneralController::class, 'index'])->name('index');
 Route::get('/page/{slug}', [GeneralController::class, 'page'])->name('page');
+Route::get('/art-shop', [GeneralController::class, 'artShops'])->name('artShops');
+Route::get('/art-shop/{slug}', [GeneralController::class, 'singleArtShop'])->name('singleArtShop');
 Route::get('/exhibition-halls', [GeneralController::class, 'exhibitionHalls'])->name('exhibitionHalls');
 Route::get('/exhibition-hall/{slug}', [GeneralController::class, 'singleExhibitionHall'])->name('singleExhibitionHall');
 Route::get('/events', [GeneralController::class, 'events'])->name('events');
