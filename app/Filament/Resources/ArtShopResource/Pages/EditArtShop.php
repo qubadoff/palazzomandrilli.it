@@ -36,11 +36,12 @@ class EditArtShop extends EditRecord
 
         $this->record->images()->delete();
 
-        foreach ($galleryImages as $index => $image) {
+        $sortOrder = 0;
+        foreach ($galleryImages as $image) {
             ArtShopImage::create([
                 'art_shop_id' => $this->record->id,
                 'image' => $image,
-                'sort_order' => $index,
+                'sort_order' => $sortOrder++,
             ]);
         }
     }
