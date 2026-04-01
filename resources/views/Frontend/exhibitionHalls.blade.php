@@ -23,7 +23,7 @@
                     <!-- Exhibition Hall Block -->
                     <div class="event-block col-md-4 col-sm-6 col-xs-12">
                         <div class="inner-box">
-                            <div class="image-box"><a href="{{ route("singleExhibitionHall", ['slug' => $hall->slug]) }}"><img src="{{ url('/') }}/storage/{{ $hall->image }}" alt=""></a></div>
+                            <div class="image-box" style="height: 280px; overflow: hidden;"><a href="{{ route("singleExhibitionHall", ['slug' => $hall->slug]) }}"><img src="{{ url('/') }}/storage/{{ $hall->image }}" alt="" style="width: 100%; height: 280px; object-fit: cover;"></a></div>
                             <div class="lower-content">
                                 <h3><a href="{{ route("singleExhibitionHall", ['slug' => $hall->slug]) }}">{{ $hall->title }}</a></h3>
                                 <div class="text">{{ Str::limit($hall->description, 120) }}</div>

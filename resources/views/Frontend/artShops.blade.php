@@ -23,7 +23,7 @@
                     <!-- Art Shop Block -->
                     <div class="event-block col-md-4 col-sm-6 col-xs-12">
                         <div class="inner-box">
-                            <div class="image-box"><a href="{{ route("singleArtShop", ['slug' => $artShop->slug]) }}"><img src="{{ url('/') }}/storage/{{ $artShop->image }}" alt=""></a></div>
+                            <div class="image-box" style="height: 280px; overflow: hidden;"><a href="{{ route("singleArtShop", ['slug' => $artShop->slug]) }}"><img src="{{ url('/') }}/storage/{{ $artShop->image }}" alt="" style="width: 100%; height: 280px; object-fit: cover;"></a></div>
                             <div class="lower-content">
                                 <h3><a href="{{ route("singleArtShop", ['slug' => $artShop->slug]) }}">{{ $artShop->title }}</a></h3>
                                 @if($artShop->price)
